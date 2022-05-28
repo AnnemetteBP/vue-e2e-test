@@ -1,0 +1,66 @@
+<!doctype html>
+<html data-framework="vue">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js • ProductMVC</title>
+    <link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+    <style>[v-cloak] { display: none; }</style>
+  </head>
+  <body>
+    <section class="shoppingbag">
+      <header class="header">
+        <h1>Shopping Bag</h1>
+        <!--<input class="new-product"
+          autofocus autocomplete="off"
+          placeholder="What needs to be done?"
+          :value="newProduct"
+          @change="setNewProduct"
+          @keyup.enter="addProduct"
+          >-->
+        <div>
+          <img src="https://iconarchive.com/download/i78281/pixelkit/tasty-bites/coffee.ico">
+          <h1>Coffee with chocolate</h1>
+          <button class="add-product-1"
+          type="button" 
+          value="Coffee with chocolate" 
+          @click="setNewProduct"
+          >Add</button>
+        </div>
+        <div>
+          <img src="https://down.imgspng.com/download/0720/mug_coffee_PNG16889.png">
+          <h1>Coffee with milk</h1>
+          <button class="add-product-2"
+          type="button" 
+          value="Coffee with milk" 
+          @click="setNewProduct"
+          >Add</button>
+        </div>
+      </header>
+      <section class="main" v-show="products.length" v-cloak>
+        <ul class="product-list">
+          <li v-for="product in products"
+            class="product"
+            :key="product.id"
+            :class="{ completed: product.completed }">
+            <div class="view">
+              <input class="toggle" type="checkbox" :checked="product.completed" @change="changeProductCompleted(product, $event)">
+              <label>{{ product.title }}</label>
+              <button class="destroy" @click="removeProduct(product)"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <footer class="info">
+      <p>Written by <a href="http://evanyou.me">Evan You</a></p>
+      <p>Part of <a href="http://todomvc.com">ProductMVC</a></p>
+    </footer>
+
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/vue@2.5.5/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
+    <script src="https://unpkg.com/axios@0.17.1/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

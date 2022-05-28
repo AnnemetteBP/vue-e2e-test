@@ -1,0 +1,46 @@
+{
+  "name": "vue-vuex-productmvc",
+  "version": "1.0.0",
+  "description": "Simple ProductMVC with Vue and Vuex",
+  "main": "app.js",
+  "scripts": {
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
+    "posttest": "npm run reset:database",
+    "test:record": "start-server-and-test start http://localhost:3000 cy:run:record",
+    "prestart": "npm run reset:database",
+    "start": "json-server data.json --static . --middlewares ./node_modules/json-server-reset",
+    "poststart": "npm run reset:database",
+    "pretest": "npm run lint",
+    "lint": "standard '*.js' 'cypress/integration/*.js'",
+    "prelint": "prettier-standard '*.js' 'cypress/integration/*.js'",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:record": "cypress run --record",
+    "cy:verify": "cypress verify",
+    "reset:database": "echo '{\"products\":[]}\n' > data.json",
+    "dev": "start-test 3000 cy:open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/vue-vuex-productmvc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bahmutov/vue-vuex-productmvc/issues"
+  },
+  "homepage": "https://github.com/bahmutov/vue-vuex-productmvc#readme",
+  "dependencies": {
+    "json-server": "0.17.0",
+    "productmvc-app-css": "2.4.2",
+    "productmvc-common": "1.0.5"
+  },
+  "devDependencies": {
+    "cy-spok": "1.5.2",
+    "cypress": "9.6.1",
+    "json-server-reset": "1.3.3",
+    "prettier-standard": "16.4.1",
+    "standard": "17.0.0",
+    "start-server-and-test": "1.14.0"
+  }
+}
