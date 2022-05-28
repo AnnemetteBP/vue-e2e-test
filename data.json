@@ -1,14 +1,3 @@
 {
-  "products": [
-    {
-      "title": "Coffee with chocolate",
-      "completed": false,
-      "id": "9977540975"
-    },
-    {
-      "title": "Coffee with milk",
-      "completed": false,
-      "id": "9622796095"
-    }
-  ]
+  "products": []
 }
