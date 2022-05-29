@@ -1,11 +1,7 @@
-# vue-vuex-productmvc [![renovate-app badge][renovate-badge]][renovate-app] [![ci status][ci image]][ci url] ![cypress version](https://img.shields.io/badge/cypress-9.6.1-brightgreen)
+# ![cypress version](https://img.shields.io/badge/cypress-9.6.1-brightgreen)
 
 Simple ProductMVC with [Vue.js](https://vuejs.org/)
 and [Vuex](https://vuex.vuejs.org/en/) data store.
-
-Based on [this Vuex tutorial](https://codeburst.io/build-a-simple-product-app-with-vue-js-1778ae175514) and the basic official [ProductMVC vue.js example](https://github.com/vuejs/vue/tree/dev/examples/productmvc)
-
-Read my [step by step tutorial](https://glebbahmutov.com/blog/vue-vuex-rest-productmvx/) explaining the code and this [thorough blogpost](https://www.cypress.io/blog/2017/11/28/testing-vue-web-application-with-vuex-data-store-and-rest-backend/) how this application is tested using Cypress.
 
 
 ## Use
@@ -26,7 +22,6 @@ All tests are implemented using [Cypress.io](https://www.cypress.io/)
 
 - [GUI E2E tests](cypress/integration/ui-spec.js)
 - [API tests](cypress/integration/api-spec.js)
-- [Vuex store tests](cypress/integration/store-spec.js)
 
 ### cy-spok example
 
