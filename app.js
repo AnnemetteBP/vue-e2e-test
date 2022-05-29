@@ -23,25 +23,25 @@
       SET_LOADING (state, flag) {
         state.loading = flag
       },
-      SET_TODOS (state, products) {
+      SET_PRODUCTS (state, products) {
         state.products = products
       },
-      SET_NEW_TODO (state, product) {
+      SET_NEW_PRODUCT (state, product) {
         state.newProduct = product
       },
-      ADD_TODO (state, productObject) {
+      ADD_PRODUCT (state, productObject) {
         console.log('add product', productObject)
         state.products.push(productObject)
       },
-      REMOVE_TODO (state, product) {
+      REMOVE_PRODUCT (state, product) {
         var products = state.products
         products.splice(products.indexOf(product), 1)
       },
-      CLEAR_NEW_TODO (state) {
+      CLEAR_NEW_PRODUCT (state) {
         state.newProduct = ''
         console.log('clearing new product')
       },
-      CHANGE_TODO_COMPLETED (state, { product, checked }) {
+      CHANGE_PRODUCT_COMPLETED (state, { product, checked }) {
         var products = state.products
         products.splice(
           products.indexOf(product),
@@ -57,12 +57,12 @@
           .get('/products')
           .then(r => r.data)
           .then(products => {
-            commit('SET_TODOS', products)
+            commit('SET_PRODUCTS', products)
             commit('SET_LOADING', false)
           })
       },
       setNewProduct ({ commit }, product) {
-        commit('SET_NEW_TODO', product)
+        commit('SET_NEW_PRODUCT', product)
       },
       addProduct ({ commit, state }) {
         if (!state.newProduct) {
@@ -75,21 +75,21 @@
           id: randomId()
         }
         axios.post('/products', product).then(_ => {
-          commit('ADD_TODO', product)
+          commit('ADD_PRODUCT', product)
         })
       },
       removeProduct ({ commit }, product) {
         axios.delete(`/products/${product.id}`).then(_ => {
           console.log('removed product', product.id, 'from the server')
-          commit('REMOVE_TODO', product)
+          commit('REMOVE_PRODUCT', product)
         })
       },
       clearNewProduct ({ commit }) {
-        commit('CLEAR_NEW_TODO')
+        commit('CLEAR_NEW_PRODUCT')
       },
       changeProductCompleted ({ commit }, { product, checked }) {
         axios.patch('/products/' + product.id, { completed: checked }).then(_ => {
-          commit('CHANGE_TODO_COMPLETED', { product, checked })
+          commit('CHANGE_PRODUCT_COMPLETED', { product, checked })
         })
       }
     }
@@ -151,7 +151,7 @@
         reader.onload = e => {
           const list = JSON.parse(e.target.result)
           list.forEach(product => {
-            this.$store.commit('ADD_TODO', product)
+            this.$store.commit('ADD_PRODUCT', product)
           })
         }
         reader.readAsText(f)

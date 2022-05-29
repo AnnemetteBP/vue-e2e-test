@@ -3,7 +3,12 @@
     {
       "title": "Coffee with chocolate",
       "completed": false,
-      "id": "1249715571"
+      "id": "2650781708"
+    },
+    {
+      "title": "Coffee with milk",
+      "completed": true,
+      "id": "0555821362"
     }
   ]
 }

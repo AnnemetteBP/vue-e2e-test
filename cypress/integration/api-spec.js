@@ -152,7 +152,7 @@ describe('API', () => {
     enterProduct('add-product-1') // id "1"
 
     // thanks to stubbed random id generator
-    // we can "predict" what the TODO object is going to look like
+    // we can "predict" what the PRODUCT object is going to look like
     cy
       .wait('@postProduct')
       .its('request.body')
