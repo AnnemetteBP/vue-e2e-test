@@ -14,7 +14,7 @@ describe('Product API', () => {
     cy.visit('/')
     cy.wait('@loadProducts')
 
-    // spy on the POST request that adds a new TODO item
+    // spy on the POST request that adds a new PRODUCT item
     cy.intercept('POST', '/products').as('addProduct')
     cy.get('.add-product-1').click()
     cy.wait('@addProduct').its('request.body')
